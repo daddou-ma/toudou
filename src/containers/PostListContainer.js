@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import PostList from '../components/PostList';
+import { fetchAllPosts } from '../actions/PostActions';
 
 class PostListContainer extends Component {
     constructor(props) {
@@ -11,17 +14,12 @@ class PostListContainer extends Component {
 
     componentDidMount() {
         console.log('did mount');
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(result => result.json())
-        .then((data) => {
-            this.setState({
-                posts: data
-            });
-        });
+        //this.props.dispatch();
+        this.props.fetchAllPosts();
     }
 
     render() {
-        const posts = this.state.posts;
+        const posts = this.props.posts;
 
         return (
             <PostList posts={posts} />
@@ -29,4 +27,15 @@ class PostListContainer extends Component {
     }
 }
 
-export default PostListContainer;
+const mapStateToProps = (state) => {
+    return {posts: state.posts}
+};
+
+const mapDispatchToProps = (dispatch, props) => ({
+    fetchAllPosts: () => {
+      dispatch(fetchAllPosts())
+    }
+  })
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostListContainer);
