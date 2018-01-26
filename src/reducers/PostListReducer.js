@@ -19,7 +19,7 @@ import {
 const initialState = [];
 
 export function postReducer (state = initialState, action) {
-    const { type, payload } = action;
+    const { type } = action;
 
     switch(type) {
         case FETCH_POST:
@@ -55,7 +55,7 @@ export function postReducer (state = initialState, action) {
             return state;
 
         case FETCH_ALL_POSTS_SUCCEED:
-            return state;
+            return action.posts;
 
         case FETCH_POST_FAILED:
             return state;
