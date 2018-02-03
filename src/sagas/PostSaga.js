@@ -11,9 +11,9 @@ import {
     fetchPostFailed
 } from '../actions/PostActions';
 
-function* fetchPost(postId) {
+function* fetchPost(action) {
     try {
-        const response = yield fetch(`https://jsonplaceholder.typicode.com/posts/${postId}?_expand=user`);
+        const response = yield fetch(`https://jsonplaceholder.typicode.com/posts/${action.postId}?_expand=user`);
         const post = yield response.json();
         yield put(fetchPostSucceed(post));
     } catch (e) {

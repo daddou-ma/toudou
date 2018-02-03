@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
 
-class PostItem extends Component {
+class PostDetails extends Component {
     render() {
         const post = this.props.post;
         const user = post.user;
@@ -9,7 +9,7 @@ class PostItem extends Component {
         return (
             <div>
                 <Card>
-                    <CardHeader>{user.name}</CardHeader>
+                    <CardHeader>{user && user.name}</CardHeader>
                     <CardBody>
                         <CardTitle>{post.title}</CardTitle>
                         <CardText>{post.body}</CardText>
@@ -23,4 +23,4 @@ class PostItem extends Component {
     }
 }
 
-export default PostItem;
+export default PostDetails;
