@@ -12,19 +12,6 @@ class PostContainer extends Component {
         this.fetchComments = this.fetchComments.bind(this);
     }
 
-    componentDidMount() {
-        this.fetchUser();
-    }
-
-    fetchUser() {
-        fetch(`https://jsonplaceholder.typicode.com/users/${this.props.post.userId}`)
-        .then(result => result.json())
-        .then((data) => {
-            this.setState({
-                user: data
-            });
-        });
-    }
 
     fetchComments(e) {
         e.preventDefault();
@@ -41,10 +28,9 @@ class PostContainer extends Component {
     render() {
         const post = this.props.post;
         const comments = this.state.comments;
-        const user = this.state.user;
 
         return (
-            <Post post={post} user={user} comments={comments} fetchComments={this.fetchComments}/>
+            <Post post={post} comments={comments} fetchComments={this.fetchComments}/>
         );
     }
 }

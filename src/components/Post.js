@@ -4,7 +4,7 @@ import CommentContainer from '../containers/CommentContainer';
 class Post extends Component {
     render() {
         const post = this.props.post;
-        const user = this.props.user;
+        const user = post.user;
         const comments = (this.props.comments.length > 0) ? this.props.comments.map(comment => <CommentContainer key={comment.id} comment={comment} />) : <a href="#" onClick={this.props.fetchComments}>Show Comments</a>;
 
         return (

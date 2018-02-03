@@ -1,0 +1,36 @@
+{
+	"posts": [
+		{
+			"id": 1,
+			"userId": 1,
+			"title": "How to become rich in 3 days",
+			"body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+		},
+		{
+			"id": 2,
+			"userId": 1,
+			"title": "How to become rich in 7 days",
+			"body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+		},
+		{
+			"id": 3,
+			"userId": 1,
+			"title": "How to become rich in 15 days",
+			"body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"name": "Mohamed El Amine"
+		},
+		{
+			"id": 2,
+			"name": "Yasser"
+		},
+		{
+			"id": 3,
+			"name": "Ahmed ayoub"
+		}
+	]
+}

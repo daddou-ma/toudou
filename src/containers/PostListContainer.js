@@ -13,8 +13,6 @@ class PostListContainer extends Component {
     }
 
     componentDidMount() {
-        console.log('did mount');
-        //this.props.dispatch();
         this.props.fetchAllPosts();
     }
 
@@ -28,7 +26,7 @@ class PostListContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {posts: state.posts}
+    return {posts: state.post.postsList}
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
