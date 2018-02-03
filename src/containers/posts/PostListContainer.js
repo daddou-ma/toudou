@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PostList from '../components/PostList';
-import { fetchAllPosts } from '../actions/PostActions';
+import PostList from '../../components/posts/PostList';
+import { fetchAllPosts } from '../../actions/PostActions';
 
 class PostListContainer extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class PostListContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {posts: state.post.postsList}
+    return {posts: state.posts.posts}
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
