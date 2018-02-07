@@ -6,14 +6,11 @@ import {
 
 const initialState = {
     posts: [],
-    error: {
-        error: false,
-        message: null,
-    },
+    message: null,
     isLoading: false,
 }
 
-export default function postsReducer (state = initialState, action) {
+export default function (state = initialState, action) {
     const { type } = action;
 
     switch(type) {
@@ -24,7 +21,7 @@ export default function postsReducer (state = initialState, action) {
             return {...state, posts: action.posts, isLoading: false};
 
         case FETCH_ALL_POSTS_FAILED:
-            return {...state, error: {error: true, message: action.error}, isLoading: false};
+            return {...state, message: {error: true, message: action.error}, isLoading: false};
 
         default:
             return state;

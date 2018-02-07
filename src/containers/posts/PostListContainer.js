@@ -19,10 +19,10 @@ class PostListContainer extends Component {
     }
 
     render() {
-        const { posts, isLoading, error } = this.props;
+        const { posts, message, isLoading } = this.props;
         return (
             <div>
-                {error.error && (<Alert color="danger">Cannot fetch data from server</Alert>)}
+                {message && message.error && (<Alert color="danger">Cannot fetch data from server</Alert>)}
                 {isLoading ? 
                     (<Alert color="secondary">Loading ...</Alert>) : 
                     (<PostList posts={posts} />)}
@@ -32,10 +32,10 @@ class PostListContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { posts, error, isLoading } = state.posts.postList;
+    const { posts, message, isLoading } = state.posts.postList;
     return {
         posts,
-        error,
+        message,
         isLoading,
     };
 };

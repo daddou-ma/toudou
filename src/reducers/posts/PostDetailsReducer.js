@@ -6,14 +6,11 @@ import {
 
 const initialState = {
     post: {},
-    error: {
-        error: false,
-        message: null,
-    },
+    message: null,
     isLoading: false,
 }
 
-export default function postReducer (state = initialState, action) {
+export default function (state = initialState, action) {
     const { type } = action;
 
     switch(type) {
@@ -24,7 +21,7 @@ export default function postReducer (state = initialState, action) {
             return {...state, post: action.post, isLoading: false};
 
         case FETCH_POST_FAILED:
-            return {...state, error: {error: true, message: action.error}, isLoading: false};
+            return {...state, message: {error: true, message: action.error}, isLoading: false};
 
         default:
             return state;

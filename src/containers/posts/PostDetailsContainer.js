@@ -9,7 +9,7 @@ class PostDetailsContainer extends Component {
         this.props.fetchPost(postId);
     }
     render() {
-        const { post, error, isLoading } = this.props;
+        const { post, message, isLoading } = this.props;
 
         return (
             <PostDetails post={post}/>
@@ -18,11 +18,11 @@ class PostDetailsContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { post, error, isLoading } = state.posts.postDetails;
+    const { post, message, isLoading } = state.posts.postDetails;
 
     return {
         post,
-        error,
+        message,
         isLoading,
     }
 }

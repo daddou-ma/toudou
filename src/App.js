@@ -6,6 +6,7 @@ import { history, store } from './Store';
 
 import PostListContainer from './containers/posts/PostListContainer';
 import PostDetailsContainer from './containers/posts/PostDetailsContainer';
+import PostNewContainer from './containers/posts/PostNewContainer';
 
 import { 
   Container, Row, Col, 
@@ -39,6 +40,8 @@ class App extends Component {
                 <div>
                   <Route exact path="/posts" component={PostListContainer} />
                   <Route exact path="/posts/:postId" component={PostDetailsContainer} />
+                  <Route exact path="/posts/new" component={PostNewContainer} />
+                  <Route exact path="/posts/:postId/edit" component={PostDetailsContainer} />
                 </div>
               </Router>
             </Col>

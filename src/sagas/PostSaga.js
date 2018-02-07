@@ -8,12 +8,20 @@ import {
     fetchAllPostsSucceed,
     fetchAllPostsFailed,
     fetchPostSucceed,
-    fetchPostFailed
+    fetchPostFailed,
+    createPostSucceed,
+    createPostFailed,
+    updatePostSucceed,
+    updatePostFailed,
+    deletePostSucceed,
+    deletePostFailed,
 } from '../actions/PostActions';
+
+import postApi from '../utils/api/posts';
 
 function* fetchPost(action) {
     try {
-        const response = yield fetch(`https://jsonplaceholder.typicode.com/posts/${action.postId}?_expand=user`);
+        const response = yield postApi.fetch(action.postId);
         const post = yield response.json();
         yield put(fetchPostSucceed(post));
     } catch (e) {
@@ -21,21 +29,39 @@ function* fetchPost(action) {
     }
 }
 
-function* createPost(post) {
-
+function* createPost(action) {
+    try {
+        const response = yield postApi.create(action.post);
+        const post = yield response.json();
+        yield put(createPostSucceed(post));
+    } catch (e) {
+        yield put(createPostFailed(e));
+    }
 }
 
-function* updatePost(post) {
-    
+function* updatePost(action) {
+    try {
+        const response = yield postApi.update(action.post);
+        const post = yield response.json();
+        yield put(updatePostSucceed(post));
+    } catch (e) {
+        yield put(updatePostFailed(e));
+    }
 }
 
-function* deletePost(postId) {
-    
+function* deletePost(action) {
+    try {
+        const response = yield postApi.update(action.postId);
+        const post = yield response.json();
+        yield put(deletePostSucceed(post));
+    } catch (e) {
+        yield put(deletePostFailed(e));
+    }
 }
 
 function* fetchAllPosts() {
     try {
-        const response = yield fetch(`https://jsonplaceholder.typicode.com/posts?_expand=user`);
+        const response = yield postApi.fetchAll();
         const posts = yield response.json();
         yield put(fetchAllPostsSucceed(posts));
      } catch (e) {
